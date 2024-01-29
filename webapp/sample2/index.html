@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>先秦諸侯王表</title>
+        <!-- Recommended meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <script type="module" src="https://pyscript.net/releases/2023.11.2/core.js"></script>
+    </head>
+
+    <body>
+<!--         <div><p class="loading">Loading&nbsp;</p></div> -->
+        <dialog>
+            <p>Loading
+                <!-- Styling SVG in a file does not work resulting not animated, embedding SVG directly styling it works -->
+                <!-- <object type="image/svg+xml" data="./assets/dots.svg" class="loader"></object> -->
+                <svg fill="none" class="loader">
+                    <circle class="dot" cx="10" cy="20" r="3" style="fill:grey;" />
+                    <circle class="dot" cx="20" cy="20" r="3" style="fill:grey;" />
+                    <circle class="dot" cx="30" cy="20" r="3" style="fill:grey;" />
+                </svg>
+            </p>
+        </dialog>
+        <div id="chart">
+            <p class="headline">先秦諸侯王在位年分佈圖</p>
+        </div>
+        <div id="df">
+            <p class="headline">先秦諸侯王在位年表</p>
+        </div>
+        <script type="module">
+            const dialog = document.querySelector('dialog');
+            dialog.showModal();
+        </script>
+        <script type="py" src="./main.py" config="./pyscript.toml" target="chart"></script>
+    </body>
+</html>

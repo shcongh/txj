@@ -1,0 +1,3 @@
+packages = ["numpy", "pandas", "matplotlib"]
+[files]
+"https://ulusite.pyscriptapps.com/txj/latest/wangbiao.csv" = "./wangbiao.csv"
