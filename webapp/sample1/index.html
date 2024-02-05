@@ -1,49 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>天行健</title>
+    <title>先秦諸侯王表</title>
     <!-- Recommended meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!-- PyScript CSS -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2023.12.1/core.css">
+    <link rel="stylesheet" href="./assets/style.css" />
     <!-- This script tag bootstraps PyScript -->
     <script type="module" src="https://pyscript.net/releases/2023.12.1/core.js"></script>
-    <style>
-        body {
-            font-family: Verdana;
-            text-align: center;
-        }
-        .spinner {
-            height: 15px;
-            width: 15px;
-            vertical-align: middle;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        div p {
-            display: none;
-            font-weight: bold;
-        }
-        table {
-            margin: auto;
-        }
-    </style>
 </head>
 <body>
-    <div class="loading">
+    <dialog>
         Loading...
-        <object type="image/svg+xml" data="ebay-spinner.svg" class="spinner" alt="Loading"></object>
-    </div>
+        <object type="image/svg+xml" data="assets/ebay-spinner.svg" class="spinner" alt="Loading"></object>
+    </dialog>
     <div id="chart">
         <p>先秦諸侯王在位年分佈圖</p>
     </div>
     <div id="df">
         <p>先秦諸侯王在位年表</p>
     </div>
+    <script type="module">
+        const dialog = document.querySelector('dialog');
+        dialog.showModal();
+    </script>
     <script type="py" src="./main.py" config="./pyscript.toml" target="chart"></script>
 </body>
 </html>

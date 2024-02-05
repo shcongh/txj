@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from pyscript import document
 from pyscript import display
 
-# integer converter
+# Integer converter
 def to_int(value):
     if value:
         return int(value, 10)
@@ -21,28 +21,25 @@ def render_chart():
     ax.set(xlabel="Year BC", ylabel="Reign length")
     ax.xaxis.tick_top()
     ax.xaxis.set_label_position('top') 
-    # display(fig, target="chart")
     display(fig)
-    loading = document.querySelector('.loading');
-    loading.style.display = "none";
     chartLabel = document.querySelector('#chart p');
     chartLabel.style.display = "block";
+    # hide loading dialog
+    dialog = document.querySelector('dialog');
+    dialog.close()
 
-def render_data():
-    # gb_state = df.groupby('state')
+# Render csv data table
+def render_table():
     pd.set_option("display.max_rows", None)
     display(df, target="df")
-    dataLabel = document.querySelector('#df p');
-    dataLabel.style.display = "block";
+    tableLabel = document.querySelector('#df p');
+    tableLabel.style.display = "block";
 
 # Convert dictionary for converting digit strings to integers.
 convert = dict(zip(['start', 'state', 'lord', 'span', 'notes'], [to_int, None, None, to_int, None]))
 
 # Read table and convert digit strings to int.
-df = pd.read_csv("./wangbiao.csv", header=0, converters=convert)
-
-# plt.rcParams['font.sans-serif'] = ['SimHei'] # Or any other Chinese characters
-# plt.rcParams['axes.unicode_minus'] = False
+df = pd.read_csv("./assets/wangbiao.csv", header=0, converters=convert)
 
 render_chart()
-render_data()
+render_table()

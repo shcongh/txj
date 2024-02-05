@@ -1,0 +1,27 @@
+body {
+    font-family: Verdana;
+    text-align: center;
+}
+div p {
+    display: none;
+    font-weight: bold;
+}
+table {
+    margin: auto;
+}
+dialog { 
+    outline: none; 
+    border: none; 
+    background: transparent;
+    text-align: left;
+}
+.spinner {
+    height: 15px;
+    width: 15px;
+    vertical-align: middle;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
